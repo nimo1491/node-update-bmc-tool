@@ -1,0 +1,37 @@
+{
+  "name": "node-update-bmc-tool",
+  "version": "1.0.0",
+  "description": "This tool can read the IP list from xlsx and then update the BMC FW via YafuFlash",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "node_modules/babel-cli/bin/babel.js src --out-dir build",
+    "start": "npm run build && node build/index.js",
+    "lint": "node_modules/eslint/bin/eslint.js src",
+    "pack": "npm run build && nexe -i build/index.js -o bin/cUpdateBmcTool -r 6.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nimo1491/node-update-bmc-tool.git"
+  },
+  "author": "Nimo Hsieh <nimo1491@gmail.com>",
+	"license": "Apache-2.0",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-syntax-async-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-for-of": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.11.1",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^5.2.2"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "ip": "^1.1.3",
+    "xlsx": "^0.8.0",
+    "yargs": "^4.8.1"
+  }
+}
