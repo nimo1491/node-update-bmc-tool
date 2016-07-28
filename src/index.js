@@ -50,9 +50,9 @@ function go() {
   let workbook;
 
   if (options.c) {
-    workbook = xlsx.readFile(`${__dirname}/${options.c}`);
+    workbook = xlsx.readFile(`./${options.c}`);
   } else {
-    workbook = xlsx.readFile(`${__dirname}/${options.c.default}`);
+    workbook = xlsx.readFile(`./${options.c.default}`);
   }
 
   const sheetNames = workbook.SheetNames;
@@ -114,7 +114,8 @@ function update() {
 
   for (const ipAddr of IpList) {
     console.log(chalk.cyan(new Date()));
-    childProcess.execSync(`echo ${ipAddr} ${username} ${password}`, { stdio: [0, 1, 2] });
+    childProcess.execSync(`./Yafuflash -nw -ip ${ipAddr} -u ${username} -p ${password} rom.ima`,
+      { stdio: [0, 1, 2] });
   }
 }
 
